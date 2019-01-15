@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRtools</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="templates.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="container">
+    <div id="top-control">
+        <div class="block">
+            <textarea id="pastearea" v-model="unparsed">
+            </textarea>
+            <button type="button" v-on:click="parse">Парсинг</button>
+        </div>
+        <div class="block">
+            <list-level v-bind:arr="arrays" v-on:choose="showTable"></list-level>
+        </div>
+    </div>
+    <div id="bottom">
+        <result-table v-bind:header="table_header" v-bind:rows="table_rows"></result-table>
+    </div>
+</div>
+</body>
+<script>
+    let app = new Vue(ArrayTabler)
+</script>
+</html>
